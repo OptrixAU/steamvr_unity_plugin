@@ -133,6 +133,8 @@ namespace Valve.VR.InteractionSystem
 			renderModel.transform.localRotation = Quaternion.identity;
 			renderModel.transform.localScale = Vector3.one;
 			renderModel.SetDeviceIndex( deviceIndex );
+			renderModel.gameObject.layer = gameObject.layer;
+            renderModel.gameObject.tag = gameObject.tag;
 
 			if ( !initialized )
 			{
@@ -299,6 +301,8 @@ namespace Valve.VR.InteractionSystem
 			hintInfo.textHintObject = GameObject.Instantiate( textHintPrefab, hintStartPos, Quaternion.identity ) as GameObject;
 			hintInfo.textHintObject.name = "Hint_" + hintInfo.componentName + "_Start";
 			hintInfo.textHintObject.transform.SetParent( textHintParent );
+			hintInfo.textHintObject.layer = gameObject.layer;
+			hintInfo.textHintObject.tag = gameObject.tag;
 
 			//Get all the relevant child objects
 			hintInfo.textStartAnchor = hintInfo.textHintObject.transform.Find( "Start" );
